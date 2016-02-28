@@ -1,0 +1,96 @@
+h1 a {
+    color: #FCA205;
+    /*font-family: 'Lobster';*/
+    font-family: 'Poiret One', cursive;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+/*.rtt-top-menu {*/
+    /*text-align:center;*/
+    /*padding:5px;*/
+/*}*/
+
+.page-header {
+    background-color: teal;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 30pt;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.log-out:active, .log-out:visited {
+    color: white;
+}
+
+.log-out:hover {
+    color: orange;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4, p, a {
+    /*font-family: 'Lobster', cursive;*/
+    font-family: 'Poiret One', cursive;
+}
+
+.date {
+    float: right;
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 20pt;
+    margin: 20px;
+}
+
+.post {
+    /*margin-bottom: 70px;*/
+    background-color: mintcream;
+    padding: 10px;
+    padding-top: 0;
+    margin-bottom: 10px;
+    border: 1px solid lightseagreen;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+}
+
+#buttons {
+    float: right;
+    margin: 5px;
+}
+
+/*.post-title {*/
+    /*align-content: center;*/
+/*}*/
+
+.post p {
+    font-family: 'Poiret One', cursive;
+    color: black;
+    text-align: center;
+    font-size: 12pt;
+}
