@@ -4,6 +4,10 @@ h1 a {
     font-family: 'Poiret One', cursive;
 }
 
+.col-md-8 {
+    width: 100%;
+}
+
 body {
     background-color: whitesmoke;
 }
@@ -31,7 +35,9 @@ body {
 }
 
 .content {
-    margin-left: 40px;
+    /*margin-left: 40px;*/
+    margin: auto;
+    width: 80%;
 }
 
 h1, h2, h3, h4, p, a {
@@ -48,8 +54,27 @@ h1, h2, h3, h4, p, a {
     float: right;
 }
 
-.post-form textarea, .post-form input {
-    width: 100%;
+.save-button {
+    float: left;
+}
+
+.board-form textarea, .board-form input {
+    width: 60%;
+    font-weight: bold;
+}
+
+.card-form textarea, .card-form input {
+    width: 60%;
+    font-weight: bold;
+}
+
+.registration-form textarea, .registration-form input {
+    width: 60%;
+    font-weight: bold;
+    font-family: 'Poiret One', cursive;
+    margin-left: 10%;
+    table-layout: auto;
+    text-align: center;
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
@@ -59,8 +84,10 @@ h1, h2, h3, h4, p, a {
     margin: 20px;
 }
 
-.post {
+.board {
     /*margin-bottom: 70px;*/
+    width: 40%;
+    margin-left: 30%;
     background-color: mintcream;
     padding: 10px;
     padding-top: 0;
@@ -70,7 +97,20 @@ h1, h2, h3, h4, p, a {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.post h1 a, .post h1 a:visited {
+.card {
+    background-color: lemonchiffon;
+    padding: 10px;
+    padding-top: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid goldenrod;
+    border-radius: 10px;
+    display: inline-block;
+    /*float: left;*/
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.board h1 a, .board h1 a:visited {
     color: #000000;
 }
 
@@ -79,9 +119,32 @@ h1, h2, h3, h4, p, a {
     margin: 5px;
 }
 
-.post p {
+.board-buttons, .board-buttons:hover {
+    border: hidden;
+    background-color: transparent;
+    color: teal;
+}
+
+.remove-card, .remove-card:hover {
+    float: right;
+    margin: 5px;
+    border: hidden;
+    background-color: transparent;
+    color: darkgoldenrod;
+}
+
+.board p {
     font-family: 'Poiret One', cursive;
     color: black;
     text-align: center;
     font-size: 12pt;
+    font-weight: bold;
+}
+
+.card p {
+    font-family: 'Poiret One', cursive;
+    color: black;
+    text-align: center;
+    font-size: 8pt;
+    font-weight: bold;
 }
