@@ -1,7 +1,7 @@
 {% extends 'rtt_app/base.html' %}
 
 {% block content %}
-    {% for post in posts %}
+    {% for board in boards %}
         <div class="post">
 {#            <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>#}
             <h1 align="center"><a href="{% url 'rtt_app.views.post_detail' pk=post.pk %}">{{ post.title }}</a></h1>

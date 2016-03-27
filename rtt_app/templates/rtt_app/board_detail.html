@@ -1,0 +1,42 @@
+{% extends 'rtt_app/base.html' %}
+
+{% block content %}
+    <div class="board">
+        {% if board.published_date %}
+{#            <div class="date">#}
+{#                {{ post.published_date }}#}
+{#            </div>#}
+        {% else %}
+            {% if user.is_authenticated %}
+                <a id="buttons" class="board-buttons" href="{% url 'rtt_app.views.board_publish' pk=board.pk %}">Publish</a>
+                <a id="buttons" class="board-buttons" href="{% url 'board_remove' pk=board.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                <a id="buttons" class="board-buttons" href="{% url 'board_edit' pk=board.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            {% else %}
+                <a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+            {% endif %}
+        {% endif %}
+        <a id="buttons" class="board-buttons" href="{% url 'board_remove' pk=board.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        <a id="buttons" class="board-buttons" href="{% url 'board_edit' pk=board.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a id="buttons" class="board-buttons" href="{% url 'card_create' pk=board.pk%}"><span class="glyphicon glyphicon-plus"></span></a>
+        <h1 align="center" class="board-title">{{ board.title }}</h1>
+{#        <p>{{ board.text|linebreaks }}</p>#}
+    </div>
+
+    {% for card in cards %}
+        {% if card.board == board %}
+            <div class="card">
+                <a id="buttons" class="remove-card" href="{% url 'card_remove' pk=board.pk card_id=card.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                <h3 align="center">{{ card.title }}</h3>
+{#                <h1 align="center"><a href="{% url 'board_detail' pk=card.pk %}">{{ card.title }}</a></h1>#}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+
+{#<div class="card">#}
+{#    <h3 align="center" class="card-title">{{ card.title }}</h3>#}
+{#    <p>{{ card.task|linebreaks }}</p>#}
+{#    <p>{{ card.deadline }}</p>#}
+{#</div>#}
+
+{% endblock %}
