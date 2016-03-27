@@ -1,8 +1,18 @@
 from django import forms
-from .models import Post
+from .models import Board, Card, Task
 
-class PostForm(forms.ModelForm):
+
+class BoardForm(forms.ModelForm):
 
     class Meta:
-        model = Post
-        fields = ('title', 'text',)
+        model = Board
+        fields = ('title',)
+
+
+class CardForm(forms.ModelForm):
+
+    class Meta:
+        model = Card
+        fields = ('title',)
+
+
