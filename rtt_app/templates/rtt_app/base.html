@@ -33,13 +33,20 @@
     <body>
         <div class="page-header">
             {% if user.is_authenticated %}
-                <a href="{% url 'rtt_app.views.board_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <div class="hint-header-plus">
+                    <div>Create a board</div>
+                    <a href="{% url 'rtt_app.views.board_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                </div>
 {#                <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>#}
                 <p class="top-menu">Hello, {{ user.username }}! <small>(<a href="{% url 'django.contrib.auth.views.logout' %}" class="log-out">Log out</a>)</small></p>
             {% else %}
                 <a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
             {% endif %}
-            <h1><a href="{% url 'rtt_app.views.board_list' %}">rtt</a></h1>
+            <div class="hint-header-rtt">
+                <div>All boards</div>
+                <h1><a href="{% url 'rtt_app.views.board_list' %}">rtt</a></h1>
+            </div>
+{#            <h1><a href="{% url 'rtt_app.views.board_list' %}">rtt</a></h1>#}
         </div>
 
         <div class="content container">

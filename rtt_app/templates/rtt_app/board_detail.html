@@ -15,9 +15,21 @@
                 <a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
             {% endif %}
         {% endif %}
-        <a id="buttons" class="board-buttons" href="{% url 'board_remove' pk=board.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-        <a id="buttons" class="board-buttons" href="{% url 'board_edit' pk=board.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a id="buttons" class="board-buttons" href="{% url 'card_create' pk=board.pk%}"><span class="glyphicon glyphicon-plus"></span></a>
+        <div class="hint">
+            <div>Delete a board</div>
+            <a id="buttons" class="board-buttons" href="{% url 'board_remove' pk=board.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+{#        <a id="buttons" class="board-buttons" href="{% url 'board_remove' pk=board.pk %}"><span class="glyphicon glyphicon-remove"></span></a>#}
+        <div class="hint">
+            <div>Change the title of the board</div>
+            <a id="buttons" class="board-buttons" href="{% url 'board_edit' pk=board.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        </div>
+{#        <a id="buttons" class="board-buttons" href="{% url 'board_edit' pk=board.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>#}
+        <div class="hint">
+            <div>Create a card</div>
+            <a id="buttons" class="board-buttons" href="{% url 'card_create' pk=board.pk%}"><span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+{#        <a id="buttons" class="board-buttons hint" href="{% url 'card_create' pk=board.pk%}" title="hint"><span class="glyphicon glyphicon-plus"></span></a>#}
         <h1 align="center" class="board-title">{{ board.title }}</h1>
 {#        <p>{{ board.text|linebreaks }}</p>#}
     </div>
@@ -33,11 +45,5 @@
             {% endif %}
         {% endfor %}
     </div>
-
-{#<div class="card">#}
-{#    <h3 align="center" class="card-title">{{ card.title }}</h3>#}
-{#    <p>{{ card.task|linebreaks }}</p>#}
-{#    <p>{{ card.deadline }}</p>#}
-{#</div>#}
 
 {% endblock %}

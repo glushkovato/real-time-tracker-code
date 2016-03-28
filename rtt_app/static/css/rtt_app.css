@@ -140,6 +140,71 @@ h1, h2, h3, h4, p, a {
     color: teal;
 }
 
+/*.hint {*/
+    /*background-color: teal;*/
+    /*color: white;*/
+    /*border: hidden;*/
+/*}*/
+
+.hint div{
+    display: none;
+}
+
+.hint:hover div{
+    display: block;
+    position: absolute;
+    background: teal;
+    border-radius: 3px;
+    color: white;
+    /*content: attr(title);*/
+    left: 80%;
+    top: 35%;
+    padding: 5px 15px;
+    /*z-index: 98;*/
+    width: auto;
+    opacity: 0.85;
+}
+
+.hint-header-plus div{
+    display: none;
+}
+
+.hint-header-plus:hover div{
+    display: block;
+    position: absolute;
+    background: teal;
+    border-radius: 3px;
+    color: white;
+    left: 90%;
+    top: 75px;
+    padding: 5px 15px;
+    /*z-index: 98;*/
+    width: auto;
+    opacity: 0.85;
+}
+
+.hint-header-rtt {
+    width: 5%;
+}
+
+.hint-header-rtt div{
+    display: none;
+}
+
+.hint-header-rtt:hover div{
+    display: block;
+    position: absolute;
+    background: teal;
+    border-radius: 3px;
+    color: white;
+    left: 2.5%;
+    top: 75px;
+    padding: 5px 15px;
+    /*z-index: 98;*/
+    width: auto;
+    opacity: 0.85;
+}
+
 .remove-card, .remove-card:hover {
     float: right;
     margin: 5px;
