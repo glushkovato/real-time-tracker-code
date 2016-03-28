@@ -22,16 +22,17 @@
 {#        <p>{{ board.text|linebreaks }}</p>#}
     </div>
 
-    {% for card in cards %}
-        {% if card.board == board %}
-            <div class="card">
-                <a id="buttons" class="remove-card" href="{% url 'card_remove' pk=board.pk card_id=card.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-                <h3 align="center">{{ card.title }}</h3>
-{#                <h1 align="center"><a href="{% url 'board_detail' pk=card.pk %}">{{ card.title }}</a></h1>#}
-            </div>
-        {% endif %}
-    {% endfor %}
-
+    <div class="my-flex-container">
+        {% for card in cards %}
+            {% if card.board == board %}
+                <div class="card">
+                    <a id="buttons" class="remove-card" href="{% url 'card_remove' pk=board.pk card_id=card.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <h3 align="center">{{ card.title }}</h3>
+    {#                <h1 align="center"><a href="{% url 'board_detail' pk=card.pk %}">{{ card.title }}</a></h1>#}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 
 {#<div class="card">#}
 {#    <h3 align="center" class="card-title">{{ card.title }}</h3>#}
