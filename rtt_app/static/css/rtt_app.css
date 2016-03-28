@@ -14,6 +14,10 @@ body {
     background-color: whitesmoke;
 }
 
+.content {
+    width: 100%;
+}
+
 .page-header {
     position: fixed;
     width: 100%;
@@ -90,9 +94,9 @@ h1, h2, h3, h4, p, a {
     background-color: mintcream;
     padding: 10px;
     padding-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 2.5%;
     border: 1px solid lightseagreen;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -101,6 +105,7 @@ h1, h2, h3, h4, p, a {
     /*height: 50%;*/
     flex-direction: row;
     justify-content: flex-start;
+
     align-items: flex-start;
     margin-left: -35px;
     /*box-sizing:border-box;*/
@@ -113,16 +118,40 @@ h1, h2, h3, h4, p, a {
     width: 200px;
     height: auto;
     background-color: lemonchiffon;
-    padding: 10px;
-    padding-top: 0;
-    margin-left: 5px;
-    margin-right: 5px;
+    padding: 3px;
+    padding-right: 0;
+    margin-left: 2.5%;
+    margin-right: 0.5%;
     /*margin-top: 5px;*/
-    border: 1px solid goldenrod;
-    border-radius: 10px;
+    border: 1px solid saddlebrown;
+    /*border-radius: 10px;*/
     /*display: inline-block;*/
     /*float: left;*/
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.button-new-task {
+    margin: 20%;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: auto;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: saddlebrown;
+    background-color: lightyellow;
+    opacity: 0.7;
+    border: none;
+    font-family: 'Poiret One', cursive;
+
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.button-new-task:hover {
+    background-color: saddlebrown;
+    color: white;
 }
 
 .board h1 a, .board h1 a:visited {
@@ -210,7 +239,7 @@ h1, h2, h3, h4, p, a {
     margin: 5px;
     border: hidden;
     background-color: transparent;
-    color: darkgoldenrod;
+    color: saddlebrown;
 }
 
 .board p {
