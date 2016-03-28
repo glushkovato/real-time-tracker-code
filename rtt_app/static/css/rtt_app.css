@@ -5,7 +5,9 @@ h1 a {
 }
 
 .col-md-8 {
+    margin-top: 150px;
     width: 100%;
+    /*margin-left: -35px;*/
 }
 
 body {
@@ -13,6 +15,8 @@ body {
 }
 
 .page-header {
+    position: fixed;
+    width: 100%;
     background-color: teal;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
@@ -32,12 +36,6 @@ body {
 .log-out:hover {
     color: orange;
     text-decoration: none;
-}
-
-.content {
-    /*margin-left: 40px;*/
-    margin: auto;
-    width: 80%;
 }
 
 h1, h2, h3, h4, p, a {
@@ -86,6 +84,7 @@ h1, h2, h3, h4, p, a {
 
 .board {
     /*margin-bottom: 70px;*/
+    position: relative;
     width: 40%;
     margin-left: 30%;
     background-color: mintcream;
@@ -97,15 +96,31 @@ h1, h2, h3, h4, p, a {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.my-flex-container{
+    display: flex;
+    /*height: 50%;*/
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: -35px;
+    /*box-sizing:border-box;*/
+    /*overflow-x: scroll;*/
+    /*overflow-y: hidden;*/
+    /*white-space: nowrap;*/
+}
+
 .card {
+    width: 200px;
+    height: auto;
     background-color: lemonchiffon;
     padding: 10px;
     padding-top: 0;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    /*margin-top: 5px;*/
     border: 1px solid goldenrod;
     border-radius: 10px;
-    display: inline-block;
+    /*display: inline-block;*/
     /*float: left;*/
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
