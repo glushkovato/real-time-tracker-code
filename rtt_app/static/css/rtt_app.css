@@ -72,12 +72,22 @@ h1, h2, h3, h4, p, a {
 }
 
 .registration-form textarea, .registration-form input {
-    width: 60%;
+    width: 80%;
     font-weight: bold;
     font-family: 'Poiret One', cursive;
     margin-left: 10%;
     table-layout: auto;
     text-align: center;
+}
+
+.col-md-4 {
+    margin-top: 5%;
+}
+
+.login-button {
+    margin-top: 3%;
+    width: 20%;
+    margin-left: 40%;
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {

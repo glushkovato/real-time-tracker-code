@@ -6,25 +6,33 @@
 
 {% block content %}
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+<div class="row">
+    <div class="col-md-4"></div>
 
-<form method="POST" action="{% url 'django.contrib.auth.views.login' %}">
-{% csrf_token %}
-<table class="registration-form">
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
+    <div class="col-md-4" >
+        {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
 
-<input style="margin-left: 20%" type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
+        <form method="POST" action="{% url 'django.contrib.auth.views.login' %}">
+        {% csrf_token %}
+        <table class="registration-form">
+        <tr>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        </table>
+
+        <input class="login-button" type="submit" value="login" />
+        <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+    </div>
+
+    <div class="col-md-4"></div>
+</div>
 
 {% endblock %}
