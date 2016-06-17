@@ -9,13 +9,14 @@ from django.contrib.auth.models import User
 
 def board_list(request):
 
-    '''
+    """
     :param: request
     :return: list of boards
 
     This function returns a list of all boards ordered by a date of creation.
     The later was created the board, the higher place it will take in the list.
-    '''
+
+    """
 
     boards = Board.objects.order_by('-created_date')
     return render(request, 'rtt_app/board_list.html', {'boards': boards})
@@ -23,14 +24,15 @@ def board_list(request):
 
 def board_detail(request, pk):
 
-    '''
+    """
     :param request:
     :param pk:
     :return: content of the board
 
     This function returns the content of the board.
     The content includes cards with (or without) tasks.
-   '''
+
+    """
 
     board = get_object_or_404(Board, pk=pk)
     cards = Card.objects.order_by('created_date')
@@ -40,13 +42,14 @@ def board_detail(request, pk):
 @login_required
 def board_new(request):
 
-    '''
+    """
     :param request:
     :return: new board
 
     This function returns a new board and redirects user to it's page if the form is filled correctly.
     Otherwise, the user will remain on the page with the form.
-    '''
+
+    """
 
     if request.method == "POST":
         form = BoardForm(request.POST)
@@ -64,14 +67,15 @@ def board_new(request):
 @login_required
 def board_edit(request, pk):
 
-    '''
+    """
     :param request:
     :param pk:
     :return: edited board
 
     This function redirects the user to the page where he can edit the title of the board.
     And saves the changes.
-    '''
+
+    """
 
     board = get_object_or_404(Board, pk=pk)
 
@@ -96,13 +100,14 @@ def board_edit(request, pk):
 @login_required
 def board_publish(request, pk):
 
-    '''
+    """
     :param request:
     :param pk:
     :return: page of the board
 
     This function confirms the changes.
-    '''
+
+    """
 
     board = get_object_or_404(Board, pk=pk)
     board.publish()
@@ -112,13 +117,14 @@ def board_publish(request, pk):
 @login_required
 def board_remove(request, pk):
 
-    '''
+    """
     :param request:
     :param pk:
     :return: list of boards
 
     This function deletes the board and returns the updated list of boards.
-    '''
+
+    """
 
     board = get_object_or_404(Board, pk=pk)
     board.delete()
@@ -128,13 +134,14 @@ def board_remove(request, pk):
 @login_required
 def card_create(request, pk):
 
-    '''
+    """
     :param request:
     :param pk:
     :return: new card
 
     This function returns a new card.
-    '''
+
+    """
 
     board = get_object_or_404(Board, pk=pk)
     if request.method == "POST":
@@ -157,7 +164,7 @@ def card_create(request, pk):
 @login_required
 def card_remove(request, pk, card_id):
 
-    '''
+    """
     :param request:
     :param pk:
     :param card_id:
@@ -165,7 +172,8 @@ def card_remove(request, pk, card_id):
 
     This function deletes a card.
     Returns a page of the board with an updated list of cards.
-    '''
+
+    """
 
     card = get_object_or_404(Card, pk=card_id)
     card.delete()
