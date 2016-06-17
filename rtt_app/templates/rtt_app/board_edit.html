@@ -1,5 +1,9 @@
 {% extends 'rtt_app/base.html' %}
 
+{% block title %}
+    <title>rtt - edit board</title>
+{% endblock %}
+
 {% block content %}
     <h1>New board</h1>
     <form method="POST" class="board-form">{% csrf_token %}

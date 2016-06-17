@@ -1,5 +1,9 @@
 {% extends 'rtt_app/base.html' %}
 
+{% block title %}
+    <title>rtt - board details</title>
+{% endblock %}
+
 {% block content %}
     <div class="board">
         {% if board.published_date %}
@@ -42,8 +46,13 @@
                         <a id="buttons" class="remove-card" href="{% url 'card_remove' pk=board.pk card_id=card.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                         <h3 align="center">{{ card.title }}</h3>
         {#                <h1 align="center"><a href="{% url 'board_detail' pk=card.pk %}">{{ card.title }}</a></h1>#}
-                        <form>
-                            <button type="button" class="button-new-task">Create a task..</button>
+                        <form action="/create_task/" method="POST" id="task-form">
+                            {% csrf_token %}
+                            <div class="fieldWrapper">
+                                {{ form.text }}
+                            </div>
+                            <input type="submit" value="Post" class="tiny button">
+{#                            <button type="button" class="button-new-task">Create a task..</button>#}
                         </form>
     {#                    <form action="demo_form.asp" method="post">#}
     {#                        <input type="text" name="fname" required>#}

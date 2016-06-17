@@ -1,5 +1,9 @@
 {% extends 'rtt_app/base.html' %}
 
+{% block title %}
+    <title>rtt - list of boards</title>
+{% endblock %}
+
 {% block content %}
     {% for board in boards %}
         <div class="board">
