@@ -71,7 +71,7 @@ h1, h2, h3, h4, p, a {
     font-weight: bold;
 }
 
-.registration-form textarea, .registration-form input {
+.login-form textarea, .login-form input {
     width: 80%;
     font-weight: bold;
     font-family: 'Poiret One', cursive;
@@ -80,14 +80,45 @@ h1, h2, h3, h4, p, a {
     text-align: center;
 }
 
-.col-md-4 {
-    margin-top: 5%;
+.col-md-4, .col-md-6 {
+    margin-top: 3%;
+}
+
+.col-md-6 {
+    margin-left: 10%;
 }
 
 .login-button {
-    margin-top: 3%;
+    margin-top: 4%;
     width: 20%;
     margin-left: 40%;
+}
+
+.signup-button {
+    margin-top: 4%;
+    width: 20%;
+    margin-left: 20%;
+}
+
+.signup-button-l {
+    margin-top: 4%;
+    width: 20%;
+    margin-left: 40%;
+}
+
+.registration-form textarea {
+    width: 20%;
+    font-weight: bold;
+    font-family: 'Poiret One', cursive;
+    /*margin-left: 10%;*/
+    /*table-layout: auto;*/
+}
+
+.registration-form input {
+    margin-left: 2%;
+    width: 40%;
+    font-weight: bold;
+    font-family: 'Poiret One', cursive;
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {

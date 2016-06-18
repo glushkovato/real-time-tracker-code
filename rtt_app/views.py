@@ -3,8 +3,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Board, Card, Task
 #from django.views.generic import TemplateView
-from .forms import BoardForm, CardForm
+from .forms import BoardForm, CardForm, MyRegistrationForm
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 
 
 def board_list(request):
@@ -193,3 +195,44 @@ def card_remove(request, pk, card_id):
     card = get_object_or_404(Card, pk=card_id)
     card.delete()
     return redirect('rtt_app.views.board_detail', pk=pk)
+
+
+def registration(request):
+    """
+    Note:
+        This function creates a new user.
+
+    Args:
+        request: Request.
+
+    Returns:
+        Registration form.
+
+    """
+    if request.method == "POST":
+        user_form = MyRegistrationForm(request.POST)  # , instance=task)
+        if user_form.is_valid():
+
+            # UserProfile.objects.create_user(username=form.cleaned_data.get('username'),
+            # password=form.cleaned_data.get('password'))
+            new_email = user_form.clean_email()
+            user_object = User.objects.create_user(
+                                     password=user_form.cleaned_data.get('password1'),
+                                     first_name=user_form.cleaned_data.get('first_name'),
+                                     last_name=user_form.cleaned_data.get('last_name'),
+                                     email=new_email,
+                                     username=new_email.split('@')[0]
+                                     )
+
+            user = authenticate(username=user_form.cleaned_data.get('email').split('@')[0],
+                                password=user_form.cleaned_data.get('password1')
+                                )
+            if user is not None:  # add check if exist
+                login(request, user)
+                return HttpResponseRedirect('/')
+            else:
+                error_msg = "Try one more time, please"
+                return render(request, 'registration/registration.html', {'form': user_form, 'error_msg': error_msg})
+    else:
+        user_form = MyRegistrationForm()
+    return render(request, 'registration/registration.html', {'form': user_form})
