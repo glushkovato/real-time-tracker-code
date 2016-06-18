@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^board/(?P<pk>[0-9]+)/remove/$', views.board_remove, name='board_remove'),
     url(r'^board/(?P<pk>[0-9]+)/card/new/$', views.card_create, name='card_create'),
     url(r'^board/(?P<pk>[0-9]+)/card/(?P<card_id>[0-9]+)/remove/$', views.card_remove, name='card_remove'),
+    url(r'^registration/$', views.registration, name='registration'),
 ]
