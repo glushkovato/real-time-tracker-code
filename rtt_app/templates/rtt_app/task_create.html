@@ -1,0 +1,13 @@
+{% extends 'rtt_app/base.html' %}
+
+{% block title %}
+    <title>rtt - create a task</title>
+{% endblock %}
+
+{% block content %}
+    <h1>New task</h1>
+    <form method="POST" class="task-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save-button">Save</button>
+    </form>
+{% endblock %}
