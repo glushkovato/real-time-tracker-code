@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Board, Card, Task
 #from django.views.generic import TemplateView
-from .forms import BoardForm, CardForm, MyRegistrationForm
+from .forms import BoardForm, CardForm, MyRegistrationForm, TaskForm
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
@@ -171,12 +171,6 @@ def card_create(request, pk):
         form = CardForm()
     return render(request, 'rtt_app/card_create.html', {'form': form})
 
-
-# def card_list(request):
-#     cards = Card.objects.order_by('-created_date')
-#     return render(request, 'rtt_app/board_detail.html', {'cards': cards})
-
-
 @login_required
 def card_remove(request, pk, card_id):
     """
@@ -195,6 +189,55 @@ def card_remove(request, pk, card_id):
     card = get_object_or_404(Card, pk=card_id)
     card.delete()
     return redirect('rtt_app.views.board_detail', pk=pk)
+
+
+@login_required
+def task_create(request, pk, card_id):
+    """
+    Note:
+        This function creates a new task.
+
+    Args:
+        request: Request.
+        pk: Primary key(board).
+        card_id: Card id.
+
+    Returns:
+        New task.
+
+    """
+    card = get_object_or_404(Card, pk=card_id)
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.card = card
+            # task.author = request.user
+            task.save()
+            return redirect('rtt_app.views.board_detail', pk=pk)
+    else:
+        form = TaskForm()
+    return render(request, 'rtt_app/task_create.html', {'form': form})
+
+
+@login_required
+def task_remove(request, card_id, task_id):
+    """
+    Note:
+        This function deletes a task.
+
+    Args:
+        request: Request.
+        card_id: id of the card.
+        task_id: id of the task.
+
+    Returns:
+        Page of the board with an updated list of cards.
+
+    """
+    task = get_object_or_404(Task, pk=task_id)
+    task.delete()
+    return redirect('blog.views.board_detail', pk=card_id)
 
 
 def registration(request):
@@ -236,3 +279,6 @@ def registration(request):
     else:
         user_form = MyRegistrationForm()
     return render(request, 'registration/registration.html', {'form': user_form})
+
+
+
