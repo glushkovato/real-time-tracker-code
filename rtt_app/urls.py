@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^board/(?P<pk>[0-9]+)/card/new/$', views.card_create, name='card_create'),
     url(r'^board/(?P<pk>[0-9]+)/card/(?P<card_id>[0-9]+)/remove/$', views.card_remove, name='card_remove'),
     url(r'^registration/$', views.registration, name='registration'),
+    url(r'^board/(?P<pk>[0-9]+)/card/(?P<card_id>[0-9]+)/task/new/$', views.task_create, name='task_create'),
+    url(r'^board/(?P<pk>[0-9]+)/card/(?P<card_id>[0-9]+)/task/(?P<task_id>[0-9]+)/remove/$', views.task_remove, name='task_remove'),
 ]
