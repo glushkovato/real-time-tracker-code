@@ -22,7 +22,6 @@ class Board(models.Model):
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
-    # last_modified = models.DateField(auto_now=True)
 
     def publish(self):
         """
@@ -41,10 +40,6 @@ class Board(models.Model):
         """
         return self.title
 
-    # def save(self):
-    #     self.modified_date = timezone.now()
-    #     super(Board, self).save()
-
 
 class Card(models.Model):
     """
@@ -60,7 +55,7 @@ class Card(models.Model):
         created_date: Date of creation.
 
     """
-    board = models.ForeignKey(Board)
+    board = models.ForeignKey(Board, related_name='cards')
     title = models.CharField(max_length=50)
     text = models.TextField(blank=False)
     created_date = models.DateTimeField(default=timezone.now)
@@ -95,8 +90,10 @@ class Task(models.Model):
         deadline: By this time the task should be done.
 
     """
-    card = models.ForeignKey(Card)
+    card = models.ForeignKey(Card, related_name='tasks')
     title = models.CharField(max_length=200)
+    # text = models.TextField()
+    # created_date = models.DateTimeField(default=timezone.now)
     deadline = models.DateField(blank=True, null=True)
 
     def publish(self):
