@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block content %}
+
+{#    <a href="{% url 'rtt_app.views.board_detail' pk=board.pk %}">Cards: {{ board.cards.count }}</a>#}
     <div class="board">
         {% if board.published_date %}
 {#            <div class="date">#}
@@ -19,45 +21,48 @@
                 <a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
             {% endif %}
         {% endif %}
+
         <div class="hint">
             <div>Delete a board</div>
             <a id="buttons" class="board-buttons" href="{% url 'board_remove' pk=board.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         </div>
-{#        <a id="buttons" class="board-buttons" href="{% url 'board_remove' pk=board.pk %}"><span class="glyphicon glyphicon-remove"></span></a>#}
+
         <div class="hint">
             <div>Change the title of the board</div>
             <a id="buttons" class="board-buttons" href="{% url 'board_edit' pk=board.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         </div>
-{#        <a id="buttons" class="board-buttons" href="{% url 'board_edit' pk=board.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>#}
+
         <div class="hint">
             <div>Create a card</div>
             <a id="buttons" class="board-buttons" href="{% url 'card_create' pk=board.pk%}"><span class="glyphicon glyphicon-plus"></span></a>
         </div>
-{#        <a id="buttons" class="board-buttons hint" href="{% url 'card_create' pk=board.pk%}" title="hint"><span class="glyphicon glyphicon-plus"></span></a>#}
+
         <h1 align="center" class="board-title">{{ board.title }}</h1>
-{#        <p>{{ board.text|linebreaks }}</p>#}
+
     </div>
+
+    <p align="center">Cards: {{ board.cards.count }}</p>
 
     <div class="my-flex-container">
         {% for card in cards %}
             {% if card.board == board %}
-                <div class="col-md-2">
-                    <div class="card">
+                <div class="col-md-3">
+                    <div class="card" align="center">
                         <a id="buttons" class="remove-card" href="{% url 'card_remove' pk=board.pk card_id=card.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                         <h3 align="center">{{ card.title }}</h3>
-        {#                <h1 align="center"><a href="{% url 'board_detail' pk=card.pk %}">{{ card.title }}</a></h1>#}
-                        <form action="/create_task/" method="POST" id="task-form">
-                            {% csrf_token %}
-                            <div class="fieldWrapper">
-                                {{ form.text }}
-                            </div>
-                            <input type="submit" value="Post" class="tiny button">
-{#                            <button type="button" class="button-new-task">Create a task..</button>#}
-                        </form>
-    {#                    <form action="demo_form.asp" method="post">#}
-    {#                        <input type="text" name="fname" required>#}
-    {#                        <input type="submit" value="Submit">#}
-    {#                    </form>#}
+                        <p align="center">Tasks: {{ card.tasks.count }}</p>
+                        <a class="btn btn-default btn-sm" href="{% url 'task_create' pk=board.pk card_id=card.pk %}">Create a task</a>
+                        {% for task in tasks %}
+                            {% if card.board == board %}
+                                <div class="task">
+                                    <a class="btn btn-default btn-sm" href="{% url 'task_remove' pk=board.pk card_id=card.pk task_id=task.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                                    <p>{{ task.title }}</p>
+                                    <p>{{ task.deadline }}</p>
+                                </div>
+                            {% endif %}
+                        {% empty %}
+                            <p style="margin-top: 4%">No tasks here yet :(</p>
+                        {% endfor %}
                     </div>
                 </div>
             {% endif %}
@@ -65,3 +70,5 @@
     </div>
 
 {% endblock %}
+
+

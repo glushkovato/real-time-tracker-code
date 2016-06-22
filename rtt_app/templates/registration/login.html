@@ -20,26 +20,26 @@
 
             <form method="POST" action="{% url 'django.contrib.auth.views.login' %}">
             {% csrf_token %}
-            <table class="login-form">
-            <tr>
-                <td>{{ form.username.label_tag }}</td>
-                <td>{{ form.username }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.password.label_tag }}</td>
-                <td>{{ form.password }}</td>
-            </tr>
-            </table>
+                <table class="login-form">
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+                </table>
 
-            <input class="login-button" type="submit" value="Log In" />
-            <input type="hidden" name="next" value="{{ next }}" />
+                <input class="btn btn-large btn-success" id="login-button" type="submit" value="Log In">
+                <input type="hidden" name="next" value="{{ next }}" />
+
             </form>
 
 
-            <form>
-                <h3 align="center">or</h3>
-                <a href="{% url 'rtt_app.views.registration' %}"><button type="submit" class="signup-button-l">Sign up</button></a>
-            </form>
+            <h3 align="center">or</h3>
+            <a href="{% url 'rtt_app.views.registration' %}" id="login-button" class="btn btn-large btn-warning"><strong>Sign up</strong></a>
+
 
         </div>
 
