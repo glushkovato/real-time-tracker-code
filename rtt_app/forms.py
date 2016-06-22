@@ -1,5 +1,5 @@
 from django import forms
-from .models import Board, Card
+from .models import Board, Card, Task
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
@@ -24,6 +24,12 @@ class CardForm(forms.ModelForm):
     class Meta:
         model = Card
         fields = ('title',)
+
+class TaskForm(forms.ModelForm):
+
+    class Meta:
+        model = Task
+        fields = ('title', 'deadline',)
 
 
 class MyRegistrationForm(forms.ModelForm):
@@ -114,3 +120,15 @@ class MyRegistrationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+# class PostForm(forms.ModelForm):
+#     class Meta:
+#         model = Task
+#         # exclude = ['author', 'updated', 'created', ]
+#         fields = ['text']
+#         widgets = {
+#             'text': forms.TextInput(
+#                 attrs={'id': 'post-text', 'required': True, 'placeholder': 'Say something...'}
+#             ),
+#         }
