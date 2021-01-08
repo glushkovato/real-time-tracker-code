@@ -47,6 +47,7 @@
 
 *Инструкции по установке и запуску на примере консоли Linux:*
 
+```bash
 git clone https://github.com/glushkovato/real-time-tracker-code.git  
 cd real-time-tracker-code  
 sudo apt-get install -y python3 pip3  
@@ -55,5 +56,6 @@ python3 virtualenv venv
 source venv/bin/activate  
 pip install -r requirements.txt  
 python manage.py runserver  
+```
 
 *Ментор:* Кутылёв Сергей Александрович.
